@@ -3,10 +3,13 @@ import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function SolutionsSection() {
+  const [activeTab, setActiveTab] = useState(1);
+
   useGSAP(() => {
     gsap.from("#solutions-section", {
       opacity: 0,
@@ -28,13 +31,22 @@ export default function SolutionsSection() {
     });
 
     gsap.from("#solutions-buttons", {
-      y: 30,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.2,
       scrollTrigger: {
-        trigger: "#solutions-buttons",
-        start: "top 70%",
+        trigger: "#solutions-title",
+        start: "top bottom",
+        end: "top top",
+        scrub: true,
+        onUpdate: (self) => {
+          const progress = self.progress;
+          const round = Math.round(progress * 10) / 10;
+          if (round > 0 && round < 0.4) {
+            setActiveTab(1);
+          }else if (round > 0.4 && round < 0.7) {
+            setActiveTab(2);
+          } else if (round > 0.8) {
+            setActiveTab(3);
+          }
+        },
       },
     });
 
@@ -71,17 +83,25 @@ export default function SolutionsSection() {
         </div>
         <div className="text-3xl font-semibold">Your prefered IT solution</div>
       </div>
-
       <div
         id="solutions-buttons"
         className="flex justify-center flex-wrap gap-4">
-        <div className="px-4 py-2 rounded-md transition-all duration-300 bg-secondary hover:bg-secondary/80 text-white cursor-pointer">
+        <div
+          className={`px-4 py-2 rounded-md transition-all duration-300 hover:bg-secondary/80 cursor-pointer ${
+            activeTab == 1 && "bg-secondary text-white"
+          }`}>
           IT Infrastructure
         </div>
-        <div className="px-4 py-2 rounded-md transition-all duration-300 hover:bg-secondary hover:text-white cursor-pointer">
+        <div
+          className={`px-4 py-2 rounded-md transition-all duration-300 hover:bg-secondary/80 cursor-pointer ${
+            activeTab == 2 && "bg-secondary text-white"
+          }`}>
           Cybersecurity
         </div>
-        <div className="px-4 py-2 rounded-md transition-all duration-300 hover:bg-secondary hover:text-white cursor-pointer">
+        <div
+          className={`px-4 py-2 rounded-md transition-all duration-300 hover:bg-secondary/80 cursor-pointer ${
+            activeTab == 3 && "bg-secondary text-white"
+          }`}>
           Digital Transformation
         </div>
       </div>
@@ -108,7 +128,9 @@ export default function SolutionsSection() {
 
           <ul className="space-y-3 px-14 md:px-5 md:columns-2">
             <li className="list-item">Technical IT infrastructure auditing</li>
-            <li className="list-item">IT Infrastructure Architecture and Development</li>
+            <li className="list-item">
+              IT Infrastructure Architecture and Development
+            </li>
             <li className="list-item">Legacy Platform Migration</li>
             <li className="list-item">IT Infrastructure Management Auditing</li>
             <li className="list-item">IT System Optimization Solutions</li>
@@ -121,13 +143,13 @@ export default function SolutionsSection() {
           </button>
         </div>
 
-          <Image
-            id="solutions-image"
-            src="/bg2.png"
-            width={800}
-            height={800}
-            className="h-full lg:w-1/2 aspect-[2/1] lg:aspect-auto object-cover object-center"
-          />
+        <Image
+          id="solutions-image"
+          src="/bg2.png"
+          width={800}
+          height={800}
+          className="h-full lg:w-1/2 aspect-[2/1] lg:aspect-auto object-cover object-center"
+        />
       </div>
     </section>
   );
