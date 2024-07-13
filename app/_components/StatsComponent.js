@@ -18,6 +18,12 @@ export default function StatsComponent() {
         duration: 4,
         ease: "power1.inOut",
         snap: { textContent: 1 },
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+          end: "bottom 10%",
+          toggleActions: "play play play reverse"
+        },
         onUpdate: function () {
           this.targets()[0].innerHTML =
             Math.ceil(this.targets()[0].textContent) + suffix;
