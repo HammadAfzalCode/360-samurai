@@ -2,32 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+::-webkit-scrollbar{
+  width: 6px;
+  background: #0B0A0A;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+::-webkit-scrollbar-thumb{
+  background: #C92127;
+  border-radius: 100px;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.list-item {
+  list-style-type: none;
+  position: relative;
 }
+
+.list-item::before {
+  content: "";
+  position: absolute;
+  left: -28px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px; /* Adjust the width */
+  height: 20px; /* Adjust the height */
+  background-image: url('/check.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+@font-face {
+  font-family: Neuropol;
+  src: url("./_fonts/Neuropol.otf");
+}
+
+@font-face {
+  font-family: "Clash Display";
+  src: url("./_fonts/ClashDisplay-Regular.otf");
+}
+
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .line{
+    @apply inline-block h-[3px] align-middle;
   }
 }
