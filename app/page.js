@@ -22,18 +22,15 @@ export default function Home() {
         <Navbar />
         <HeroSection />
         <FeaturesSection />
-
         <div className="bg-white text-primary space-y-10">
           <ExcellenceSection />
           <SolutionsSection />
         </div>
-
         <StackSection />
 
         <div className="bg-white text-primary space-y-10">
           <CallToAction />
           <Footer />
-         
         </div>
 
         <div className="text-center">

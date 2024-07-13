@@ -12,7 +12,7 @@ export default function FeaturedSection() {
        duration: 2,
        scrollTrigger: {
          trigger: "#features-section",
-         start: "top 80%",
+         start: "top 90%",
        },
      });
 
@@ -22,7 +22,7 @@ export default function FeaturedSection() {
        duration: 1.5,
        scrollTrigger: {
          trigger: "#features-title",
-         start: "top 80%",
+         start: "top 90%",
        },
      });
 
@@ -33,7 +33,7 @@ export default function FeaturedSection() {
        stagger: 0.5,
        scrollTrigger: {
          trigger: "#features-list",
-         start: "top 70%",
+         start: "top 80%",
        },
      });
    
@@ -84,7 +84,7 @@ export default function FeaturedSection() {
         ))}
       </div>
 
-      <div id="partners" className="px-12 grid grid-cols-2 lg:grid-cols-5 gap-6">
+      {/* <div id="partners" className="px-12 grid grid-cols-2 lg:grid-cols-5 gap-6">
         {partners.map(({ id, name, url }) => (
           <div
             className="w-full px-6 py-4 border-2 border-zinc-800 hover:border-white hover:bg-zinc-900 rounded-lg cursor-pointer transition-all duration-300"
@@ -97,6 +97,24 @@ export default function FeaturedSection() {
             />
           </div>
         ))}
+      </div> */}
+      <div className="overflow-hidden relative ">
+        <div id="partners" className="flex gap-4 animate-carousel">
+          {[...partners, ...partners].map(({ id, name, url }, index) => (
+            <div
+              className="flex-shrink-0 w-1/2 md:w-1/5 border-2 px-6 py-4 border-zinc-800 hover:border-white hover:bg-zinc-900 rounded-lg cursor-pointer transition-all duration-300"
+              key={`${id}#${index}`}>
+              <Image
+                width={200}
+                height={100}
+                src={url}
+                alt={name}
+                className="max-h-12 object-contain object-center"
+              />
+            </div>
+          ))}
+        </div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-zinc-900/50 via-transparent to-zinc-900/50"></div>
       </div>
     </div>
   );
