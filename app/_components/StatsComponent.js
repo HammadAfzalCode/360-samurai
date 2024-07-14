@@ -24,7 +24,7 @@ export default function StatsComponent() {
             }
             el.textContent = Math.floor(current) + (el.dataset.suffix || "");
           }, 20);
-          
+
         }
       });
     }
