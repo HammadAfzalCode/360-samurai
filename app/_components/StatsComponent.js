@@ -3,7 +3,7 @@ import { useRef, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
 export default function StatsComponent() {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [ref, inView] = useInView({ threshold: 0.2 });
   const containerRef = useRef(null);
 
   useEffect(() => {

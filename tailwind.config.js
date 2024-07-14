@@ -16,7 +16,7 @@ module.exports = {
         clash: ["Clash Display", "sans-serif"],
       },
       animation: {
-        carousel: "carousel 30s linear infinite",
+        carousel: "carousel 20s linear infinite",
       },
       keyframes: {
         carousel: {
