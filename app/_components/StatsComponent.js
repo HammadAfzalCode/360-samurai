@@ -18,6 +18,7 @@ export default function StatsComponent() {
           const increment = value / 200;  // Calculating increment value for smooth animation and according to how big or small the value is.
           const timer = setInterval(() => {
             current += increment;
+            console.log(current)
             if (current >= value) {
               clearInterval(timer);
               current = value;
