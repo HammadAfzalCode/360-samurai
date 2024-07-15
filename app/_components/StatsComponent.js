@@ -1,42 +1,40 @@
 "use client";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { useRef, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
 export default function StatsComponent() {
-  const [ref, inView] = useInView({ threshold: 0.2 });
   const containerRef = useRef(null);
 
-  useEffect(() => {
-    if (inView && containerRef.current) {
-      const statElements = containerRef.current.querySelectorAll("[data-value]");
-      statElements.forEach((el) => {
-        if (el.dataset.value) {
-          const value = parseInt(el.dataset.value);
+ useGSAP(() => {
+   if (containerRef.current) {
+     const statElements = containerRef.current.querySelectorAll("[data-value]");
+     statElements.forEach((el) => {
+       if (el.dataset.value) {
+         const value = parseInt(el.dataset.value);
+         gsap.to(el, {
+           textContent: value,
+           duration: 3,
+           ease: "power1.inOut",
+           modifiers: {
+             textContent: (value) => `${Math.ceil(parseInt(value))}${el.dataset.suffix || ""}`,
+           },
+           scrollTrigger: {
+             trigger: el,
+             start: "top bottom",
+             end: "bottom 10%",
+             toggleActions: "play reverse play reverse"           },
+         });
+       }
+     });
+   }
+ }, []);
 
-          let current = 0;
-          
-          const increment = value / 200;  // Calculating increment value for smooth animation and according to how big or small the value is.
-          const timer = setInterval(() => {
-            current += increment;
-            console.log(current)
-            if (current >= value) {
-              clearInterval(timer);
-              current = value;
-            }
-            el.textContent = Math.floor(current) + (el.dataset.suffix || "");
-          }, 20);
-
-        }
-      });
-    }
-  }, [inView]);
 
   return (
     <div
-      ref={(el) => {
-        containerRef.current = el;
-        ref(el); // a function not an actual ref
-      }}
+      ref={containerRef}
       className="w-fit mt-8 sm:mt-20 px-10 py-4 border border-gray-500 rounded-lg flex gap-8 flex-wrap items-center">
       <div className="text-3xl font-semibold">
         <div className="text-secondary" data-value="2000" data-suffix="+">
