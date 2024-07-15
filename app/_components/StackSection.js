@@ -5,30 +5,6 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 export default function StackSection() {
-  // useGSAP(() => {
-  //   gsap.from(".stack-title", {
-  //     x: -100,
-  //     opacity: 0,
-  //     duration: 1,
-  //     stagger: 0.2,
-  //     scrollTrigger: {
-  //       trigger: "#stack-section",
-  //       start: "top 80%",
-  //     },
-  //   });
-
-  //   gsap.from(".stack-content", {
-  //     y: 50,
-  //     opacity: 0,
-  //     duration: 0.8,
-  //     stagger: 0.2,
-  //     scrollTrigger: {
-  //       trigger: "#stack-section",
-  //       start: "top 70%",
-  //     },
-  //   });
-
-  // }, []);
 
   useGSAP(() => {
     const tl = gsap.timeline({
