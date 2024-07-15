@@ -1,48 +1,49 @@
-"use client"
+"use client";
 import { featuresList, partners } from "@/app/constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
 
 export default function FeaturedSection() {
-
   useGSAP(() => {
-     gsap.from("#features-section", {
-       opacity: 0,
-       duration: 2,
-       scrollTrigger: {
-         trigger: "#features-section",
-         start: "top 90%",
-       },
-     });
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#features-section",
+        start: "10% 90%",
+        end: "90% 10%",
+        toggleActions: "play reset play none",
+      },
+    });
+    tl.from("#features-section", {
+      y: 80,
+      opacity: 0,
+      duration: 0.6,
+    });
 
-     gsap.from("#features-title", {
-       y: 50,
-       opacity: 0,
-       duration: 1.5,
-       scrollTrigger: {
-         trigger: "#features-title",
-         start: "top 90%",
-       },
-     });
+    tl.from("#features-title  *", {
+      x: -50,
+      opacity: 0,
+      duration: 1.5,
+      stagger: 0.2,
+    });
 
-     gsap.from("#features-list > div", {
-       y: 50,
-       opacity: 0,
-       duration: 0.8,
-       stagger: 0.5,
-       scrollTrigger: {
-         trigger: "#features-list",
-         start: "top 80%",
-       },
-     });
-   
-  },[])
+    tl.from(
+      "#features-list > div",
+      {
+        y: 50,
+        scale: 0.4,
+        opacity: 0,
+        duration: 1.3,
+        stagger: 0.5,
+      },
+      "-=1"
+    );
+  }, []);
 
   return (
     <div
       id="features-section"
-      className="container mx-auto  border border-[#1a1a1a] py-8 rounded-lg bg-gradient-to-tr from-primary to-[#131313] space-y-24">
+      className="container mx-auto  border border-[#1a1a1a] py-8 rounded-lg bg-gradient-to-tr from-primary to-[#131313] space-y-24 overflow-hidden">
       <div
         id="features-title"
         className="flex items-start justify-between flex-wrap gap-8  px-12">

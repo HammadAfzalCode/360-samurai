@@ -1,8 +1,7 @@
 "use client";
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useRef, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
 
 export default function StatsComponent() {
   const containerRef = useRef(null);
@@ -23,8 +22,9 @@ export default function StatsComponent() {
            scrollTrigger: {
              trigger: el,
              start: "top bottom",
-             end: "bottom 10%",
-             toggleActions: "play reverse play reverse"           },
+             end: "bottom 2%",
+             toggleActions: "play reset play reverse",
+           },
          });
        }
      });

@@ -5,29 +5,58 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 export default function StackSection() {
+  // useGSAP(() => {
+  //   gsap.from(".stack-title", {
+  //     x: -100,
+  //     opacity: 0,
+  //     duration: 1,
+  //     stagger: 0.2,
+  //     scrollTrigger: {
+  //       trigger: "#stack-section",
+  //       start: "top 80%",
+  //     },
+  //   });
+
+  //   gsap.from(".stack-content", {
+  //     y: 50,
+  //     opacity: 0,
+  //     duration: 0.8,
+  //     stagger: 0.2,
+  //     scrollTrigger: {
+  //       trigger: "#stack-section",
+  //       start: "top 70%",
+  //     },
+  //   });
+
+  // }, []);
+
   useGSAP(() => {
-    gsap.from(".stack-title", {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#stack-section",
+        start: "top 80%",
+        end: "bottom 20%",
+        toggleActions: "play reset play reset"
+      },
+    });
+
+    tl.from(".stack-title", {
       x: -100,
       opacity: 0,
       duration: 1,
       stagger: 0.2,
-      scrollTrigger: {
-        trigger: "#stack-section",
-        start: "top 80%",
-      },
-    });
-
-    gsap.from(".stack-content", {
-      y: 50,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.2,
-      scrollTrigger: {
-        trigger: "#stack-section",
-        start: "top 70%",
-      },
-    });
-
+    })
+      .from(
+        ".stack-content",
+        {
+          y: 50,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.2,
+        },
+        "-=0.5"
+      )
+      
   }, []);
 
   return (

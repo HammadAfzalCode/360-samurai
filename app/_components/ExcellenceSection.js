@@ -8,37 +8,30 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function ExcellenceSection() {
   useGSAP(() => {
-    gsap.from("#excellence-section", {
-      opacity: 0,
-      duration: 2,
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#excellence-section",
         start: "top 80%",
+        end: "bottom 20%",
+        toggleActions: "play reset play reset"
       },
     });
 
-    gsap.from("#left-column > div", {
-      x: -50,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.5,
-      scrollTrigger: {
-        trigger: "#left-column",
-        start: "top 70%",
-      },
-    });
-
-    gsap.from("#right-column *", {
-      x: 50,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.3,
-      scrollTrigger: {
-        trigger: "#right-column",
-        start: "top 70%",
-      },
-    });
+    tl
+    .from("#left-column  div", {
+          x: -50,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.2,
+    })
+    .from("#right-column *", {
+          x: 50,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.2,
+      },"-=0.5");
   }, []);
+
   return (
     <section
       id="excellence-section"
@@ -108,7 +101,11 @@ export default function ExcellenceSection() {
           <div>
             <button
               className="block px-4 py-2 rounded-md transition-all duration-300 bg-primary hover:bg-primary/80 text-white"
-              style={{ display: "inline-block", opacity: 1, translate: "50px" }}>
+              style={{
+                display: "inline-block",
+                opacity: 1,
+                translate: "50px",
+              }}>
               Start Project
             </button>
           </div>

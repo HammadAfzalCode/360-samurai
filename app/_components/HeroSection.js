@@ -10,13 +10,21 @@ export default function HeroSection() {
   const imageRef = useRef(null);
 
   useGSAP(() => {
-    const tl = gsap.timeline();
-
-    tl.from("#hero-content > *, h2 > * ", {
+    const tl = gsap.timeline({
+      delay: 0.5,
+      scrollTrigger: {
+        trigger: heroContentRef.current,
+        start: "top 90%",
+        end: "bottom 10%",
+        toggleActions: "play reverse play reverse"
+      }
+    });
+    
+    tl.from("#hero-content > *, #hero-content > h2 > *", {
       opacity: 0,
       y: 50,
-      stagger: 0.2,
-      duration: 1,
+      stagger: 0.3,
+      duration: 1.4,
       ease: "power3.out"
     });
 
