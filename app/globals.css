@@ -31,13 +31,13 @@
 .list-item::before {
   content: "";
   position: absolute;
-  left: -28px;
+  left: -20px;
   top: 50%;
   transform: translateY(-50%);
-  width: 20px; /* Adjust the width */
-  height: 20px; /* Adjust the height */
+  width: 15px; /* Adjust the width */
+  height: 15px; /* Adjust the height */
   background-image: url('/check.png');
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 

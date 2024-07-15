@@ -17,13 +17,13 @@ export default function FeaturedSection() {
     tl.from("#features-section", {
       y: 80,
       opacity: 0,
-      duration: 0.6,
+      duration: 0.4,
     });
 
     tl.from("#features-title  *", {
       x: -50,
       opacity: 0,
-      duration: 1.5,
+      duration: 1,
       stagger: 0.2,
     });
 
@@ -33,8 +33,9 @@ export default function FeaturedSection() {
         y: 50,
         scale: 0.4,
         opacity: 0,
-        duration: 1.3,
+        duration: 0.8,
         stagger: 0.5,
+        ease: "power4"
       },
       "-=1"
     );

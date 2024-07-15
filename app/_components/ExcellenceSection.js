@@ -11,9 +11,9 @@ export default function ExcellenceSection() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#excellence-section",
-        start: "top 80%",
-        end: "bottom 20%",
-        toggleActions: "play reset play reset"
+        start: "top 90%",
+        end: "bottom 10%",
+        toggleActions: "play reverse play reverse"
       },
     });
 
@@ -21,13 +21,13 @@ export default function ExcellenceSection() {
     .from("#left-column  div", {
           x: -50,
           opacity: 0,
-          duration: 0.8,
+          duration: 0.3,
           stagger: 0.2,
     })
     .from("#right-column *", {
           x: 50,
           opacity: 0,
-          duration: 0.8,
+          duration: 0.4,
           stagger: 0.2,
       },"<=0.5");
   }, []);
@@ -35,7 +35,7 @@ export default function ExcellenceSection() {
   return (
     <section
       id="excellence-section"
-      className="container mx-auto py-14 space-y-10">
+      className="container mx-auto pt-14 space-y-10">
       <div className="container mx-auto flex flex-col md:flex-row gap-14 md:*:w-1/2 ">
         <div id="left-column" className="space-y-20">
           <div className="space-y-8">
