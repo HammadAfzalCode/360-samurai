@@ -45,7 +45,7 @@ export default function Navbar() {
         </Link>
       </div> */}
       <div>
-        <button className="px-4 py-2 rounded-md transition-all duration-300 bg-secondary">Get a Quote</button>
+        <button className="px-4 py-2 rounded-md transition-all duration-300 bg-secondary">Our Services</button>
       </div>
     </nav>
   );

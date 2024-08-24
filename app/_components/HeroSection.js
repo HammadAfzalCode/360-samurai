@@ -19,7 +19,7 @@ export default function HeroSection() {
         toggleActions: "play reverse play reverse"
       }
     });
-    
+
     tl.from("#hero-content > *, #hero-content > h2 > *", {
       opacity: 0,
       y: 50,
@@ -34,7 +34,7 @@ export default function HeroSection() {
       duration: 1,
       ease: "power3.out"
     }, "-=0.5");
-    
+
   }, []);
 
 
@@ -60,9 +60,9 @@ export default function HeroSection() {
           </p>
           <div
             className="flex items-center flex-wrap gap-3 font-semibold tracking-wide">
-            <button className="px-4 py-2 rounded-md transition-all duration-300 bg-secondary hover:bg-secondary/80">
+            {/* <button className="px-4 py-2 rounded-md transition-all duration-300 bg-secondary hover:bg-secondary/80">
               Get a Quote
-            </button>
+            </button> */}
             <button className="px-4 py-2 rounded-md transition-all duration-300 hover:bg-secondary border border-secondary">
               Our Services
             </button>
