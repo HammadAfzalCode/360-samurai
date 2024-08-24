@@ -18,7 +18,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Home() {
   return (
     <div className="min-h-screen bg-primary text-white font-clash tracking-wide">
-      <div className="*:px-4 py-10 space-y-10 relative overflow-hidden">
+      <div className="*:px-4 py-4 space-y-10 relative overflow-hidden">
         <Navbar />
         <HeroSection />
         <FeaturesSection />

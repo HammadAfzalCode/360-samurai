@@ -6,7 +6,7 @@ import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa6";
 
 export default function Navbar() {
   return (
-    <nav className="container mx-auto flex justify-between items-center">
+    <nav className="container mx-auto flex justify-between items-center z-100">
       <Link href="/">
         <Image src="/assets/logo.svg" alt="Logo" width={200} height={200} className="w-[150px] sm:w-[200px]" />
       </Link>
@@ -45,7 +45,7 @@ export default function Navbar() {
         </Link>
       </div> */}
       <div>
-        <button className="px-4 py-2 rounded-md transition-all duration-300 bg-secondary">Our Services</button>
+        <button className="px-4 py-2 rounded-md transition-all duration-300 bg-secondary z-50">Our Services</button>
       </div>
     </nav>
   );

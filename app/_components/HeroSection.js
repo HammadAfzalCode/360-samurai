@@ -75,7 +75,7 @@ export default function HeroSection() {
         src="/assets/logo_big.svg"
         height={1100}
         width={1100}
-        className="absolute -right-[20%] top-0 lg:w-3/6"
+        className="absolute -right-[20%] top-0 opacity-[30%] lg:w-3/6"
       />
     </section>
   );
