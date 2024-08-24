@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <nav className="container mx-auto flex justify-between items-center">
       <Link href="/">
-        <Image src="/assets/logo.svg" alt="Logo" width={200} height={200} />
+        <Image src="/assets/logo.svg" alt="Logo" width={200} height={200} className="w-[150px] sm:w-[200px]" />
       </Link>
       <ul className="hidden text-sm lg:flex items-center gap-6">
         <li className="flex items-center gap-2 cursor-pointer group">
