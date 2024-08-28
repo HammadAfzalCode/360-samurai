@@ -3,7 +3,7 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/f
 
 export default function Footer() {
     return (
-      <footer className="container mx-auto pb-14 flex flex-col md:flex-row justify-between gap-6">
+      <footer id="footer" className="container mx-auto pb-14 flex flex-col md:flex-row justify-between gap-6">
         <div className="space-y-10">
           <Image
             width={200}

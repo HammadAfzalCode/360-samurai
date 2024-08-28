@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import { LuChevronDown } from "react-icons/lu";
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa6";
+import { Link as ReactLink } from "react-scroll";
 
 export default function Navbar() {
   return (
@@ -11,21 +12,37 @@ export default function Navbar() {
         <Image src="/assets/logo.svg" alt="Logo" width={200} height={200} className="w-[150px] sm:w-[200px]" />
       </Link>
       <ul className="hidden text-sm lg:flex items-center gap-6">
-        <li className="flex items-center gap-2 cursor-pointer group">
-          IT Infrastructure
-          <LuChevronDown className="text-secondary group-hover:translate-y-1 transition-transform duration-300" />
-        </li>
-        <li className="flex items-center gap-2 cursor-pointer group">
-          Cybersecurity
-          <LuChevronDown className="text-secondary group-hover:translate-y-1 transition-transform duration-300" />
-        </li>
-        <li className="flex items-center gap-2 cursor-pointer group">
-          Digital Transformation
-          <LuChevronDown className="text-secondary group-hover:translate-y-1 transition-transform duration-300" />
-        </li>
-        <li className="flex items-center gap-2 cursor-pointer group">
-          About Us
-        </li>
+        <ReactLink to="features-section"
+          smooth={true}
+          duration={500}
+          className="cursor-pointer">
+          <li className="flex items-center gap-2 cursor-pointer group">
+            Features
+            {/* <LuChevronDown className="text-secondary group-hover:translate-y-1 transition-transform duration-300" /> */}
+          </li></ReactLink>
+        <ReactLink to="solutions-section"
+          smooth={true}
+          duration={500}
+          className="cursor-pointer">
+          <li className="flex items-center gap-2 cursor-pointer group">
+            Business needs
+            {/* <LuChevronDown className="text-secondary group-hover:translate-y-1 transition-transform duration-300" /> */}
+          </li></ReactLink>
+        <ReactLink to="stack-section"
+          smooth={true}
+          duration={500}
+          className="cursor-pointer" >
+          <li className="flex items-center gap-2 cursor-pointer group">
+            Stack Partners
+            {/* <LuChevronDown className="text-secondary group-hover:translate-y-1 transition-transform duration-300" /> */}
+          </li></ReactLink>
+        <ReactLink to="footer"
+          smooth={true}
+          duration={500}
+          className="cursor-pointer">
+          <li className="flex items-center gap-2 cursor-pointer group">
+            About Us
+          </li></ReactLink>
       </ul>
       {/* <div className="flex items-center gap-2">
         <Link
@@ -44,8 +61,10 @@ export default function Navbar() {
           <FaLinkedinIn />
         </Link>
       </div> */}
+
       <div>
-        <button className="px-4 py-2 rounded-md transition-all duration-300 bg-secondary z-50">Our Services</button>
+
+        <button className="px-4 py-2 rounded-md transition-all duration-300 bg-secondary ">Our Services</button>
       </div>
     </nav>
   );
